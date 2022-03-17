@@ -1,0 +1,56 @@
+settings:
+  allow-debug-messages: false # toggle if you want to see when a player was added in the console
+  default-group: global
+  default-profanity-filter: true
+  bad-words-list: #words that will be censored if a player has the profanity filter enabled
+    - fuck
+    - shit
+    - bitch
+    - damn
+    - ass
+    - penis
+    - vagina
+    - cock
+    - dick
+  default-chat-format: '%name%: <gray><message>' # see below for placeholders and formatting
+
+messages:
+  switch-channels: "<yellow>You switched to the %channel% channel"
+  no-permission: "<dark_red>You do not have permission to use this command"
+
+# Formatting depends on the MiniMessage API.
+# You can read about the formatting here: https://docs.adventure.kyori.net/minimessage/format.html
+
+# regarding placeholders:
+# <name> player name
+# %name% player name w/ customizeable chat formatting (see rank-prefixes)
+# <other> other player name
+# <message> the message
+
+storage:
+  filename: 'profiles'
+
+
+groups: # default group settings
+  global: # placeholders for most groups are <name> and <message>. the private group is slightly different to account for the whisper system.
+    global: true
+    default: true # You can leave this setting out or set to false if it is not the default chat (when players first log in)
+    block-range: 0 # You can leave this out or set to 0 to ignore the block range
+    chat-format: '%name%: <gradient:dark_red:red><message>'
+  shout:
+    global: false
+    chat-format: '%name%: <gradient:blue:white><message>'
+  private: # only group with sender/receiver placeholders instead of <name>
+    global: false
+    block-range: 3
+    chat-format: '<aqua><name> → <other>: <dark_aqua><message>'
+  local:
+    global: false
+    block-range: 20
+    chat-format: '%name%: <gray><message>'
+
+# permissions plugin support (rank: 'prefix')
+# default and admin (op) can be used without any permissions plugin
+rank-prefixes:
+  admin: '<rainbow><bold><name></bold></rainbow>'
+  default: '<gradient:dark_gray:white><bold><name></bold></gradient>' #automatically replaces %name% (put '<name>' or '' to ignore)

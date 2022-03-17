@@ -1,0 +1,16 @@
+package net.wechandoit.multichat.database;
+
+import net.wechandoit.multichat.Multichat;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.logging.Level;
+
+public class Error {
+    public static void execute(Multichat plugin, Exception ex) {
+        plugin.getLogger().log(Level.SEVERE, "Couldn't execute MySQL statement: ", ex);
+    }
+
+    public static void close(JavaPlugin plugin, Exception ex) {
+        plugin.getLogger().log(Level.SEVERE, "Failed to close MySQL connection: ", ex);
+    }
+}

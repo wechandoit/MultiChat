@@ -1,0 +1,24 @@
+name: Multichat
+version: '${project.version}'
+main: net.wechandoit.multichat.Multichat
+api-version: 1.18
+softdepend: [PlaceholderAPI, LuckPerms]
+authors: [wechandoit]
+description: A plugin which provides a multi tiered chat system for users
+
+commands:
+  multichat:
+    description: Multichat commands
+    usage: /multichat setProfanityFilter [true/false]
+    aliases: [chat, mc]
+  shout:
+    description: Shout
+    usage: /shout [message]
+  message:
+    description: message
+    usage: /message [player] [message]
+    aliases: [m, msg, whisper]
+  reply:
+    description: reply
+    usage: /reply [message]
+    aliases: [r, repsond]
